@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Station.create([
+Station.create!([
     {name: 'Taft', line: 'MRT3', order: 1},
     {name: 'Magallanes', line: 'MRT3', order: 2},
     {name: 'Ayala', line: 'MRT3', order: 3},
@@ -23,11 +23,11 @@ Station.create([
 ])
 
 Station.find_each do |station|
-    station.scanners << Scanner.create({key: "#{station.order}-abcdef"})
-    station.scanners << Scanner.create({key: "#{station.order}-ghijkl"})
+    station.scanners << Scanner.create!({key: "#{station.order}-abcdef"})
+    station.scanners << Scanner.create!({key: "#{station.order}-ghijkl"})
 end
 
-Card.create([
+Card.create!([
     # Has yet to pump, ever
     {sid: 'D3D4E9E7', origin: 'Taft MRT3', date_given: 10.days.ago, last_ridden: 5.days.ago, points: 0, points_total: 0},
     # Has yet to pump
