@@ -28,8 +28,8 @@ Station.create!([
 ])
 
 Station.find_each do |station|
-    station.scanners << Scanner.create!({key: "#{station.order}-abcdef"})
-    station.scanners << Scanner.create!({key: "#{station.order}-ghijkl"})
+    Scanner.create!({key: "#{station.order}-abcdef", station: station})
+    Scanner.create!({key: "#{station.order}-ghijkl", station: station})
 end
 
 Card.create!([
