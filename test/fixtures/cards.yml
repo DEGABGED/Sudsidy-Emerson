@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sid: MyString
+  origin: MyString
+  date_given: 2018-11-06 23:18:17
+  last_ridden: 2018-11-06 23:18:17
+  last_pumped: 2018-11-06 23:18:17
+  points: 
+  points_total: 
+
+two:
+  sid: MyString
+  origin: MyString
+  date_given: 2018-11-06 23:18:17
+  last_ridden: 2018-11-06 23:18:17
+  last_pumped: 2018-11-06 23:18:17
+  points: 
+  points_total: 
