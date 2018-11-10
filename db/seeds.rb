@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Pump.delete_all
+Card.delete_all
+Scanner.delete_all
+Station.delete_all
+
 Station.create!([
     {name: 'Taft', line: 'MRT3', order: 1},
     {name: 'Magallanes', line: 'MRT3', order: 2},
