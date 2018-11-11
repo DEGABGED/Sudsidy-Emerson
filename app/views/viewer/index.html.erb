@@ -62,8 +62,8 @@
   <tbody>
     <% @pumps.each do |pump| %>
       <tr>
-        <td><%= pump.card %></td>
-        <td><%= pump.scanner %></td>
+        <td><%= pump.card ? pump.card.sid : 'None' %></td>
+        <td><%= pump.scanner.key %></td>
         <td><%= pump.is_valid == 1 %></td>
       </tr>
     <% end %>
