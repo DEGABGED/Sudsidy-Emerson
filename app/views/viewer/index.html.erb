@@ -1,0 +1,72 @@
+<h1>Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial ID</th>
+      <th>Origin</th>
+      <th>Date Given</th>
+      <th>Last Ridden</th>
+      <th>Last Pumped</th>
+      <th>Points</th>
+      <th>Points Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.sid %></td>
+        <td><%= card.origin %></td>
+        <td><%= card.date_given %></td>
+        <td><%= card.last_ridden %></td>
+        <td><%= card.last_pumped %></td>
+        <td><%= card.points %></td>
+        <td><%= card.points_total %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Scanners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Station</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scanners.each do |scanner| %>
+      <tr>
+        <td><%= scanner.key %></td>
+        <td><%= scanner.station.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Pumps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card</th>
+      <th>Scanner</th>
+      <th>Valid?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pumps.each do |pump| %>
+      <tr>
+        <td><%= pump.card %></td>
+        <td><%= pump.scanner %></td>
+        <td><%= pump.is_valid == 1 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
