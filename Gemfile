@@ -43,6 +43,10 @@ gem 'rack-cors'
 # You know I had to do it to em
 gem 'devise'
 
+# For the graphs
+gem 'groupdate'
+gem 'chartkick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
