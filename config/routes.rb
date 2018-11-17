@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   # Public Routes
   root 'cards#index'
   get 'cards/:id' => 'cards#show', as: :card
