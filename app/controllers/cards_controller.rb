@@ -6,6 +6,14 @@ class CardsController < ApplicationController
 
   def index
     # Get aggregate data here
+    @stations = Station.all
+
+    # If there is a thing
+    @station = Station.first
+    if params[:station]
+      @station = Station.find(params[:station])
+    end
+    @pumps = @station.pumps
   end
 
   def search

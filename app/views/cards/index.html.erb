@@ -1,8 +1,28 @@
-<div class="orange container-fluid fill">
-<%= image_tag "logo.png", class: "rounded mx-auto d-block logo" %>
-<div class="row">
-    <div class="container">
-        <h1 class="text-center">uwu</h1>
+<div class="container-fluid navbar-offset">
+    <div class="row">
+        <div class="col-4">
+        <h4>Weekly Pumps</h4>
+        <p>69</p>
+        </div>
+        <div class="col-4">
+        <h4>Total Pumps</h4>
+        <p>420</p>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        <%= form_tag('/', method: :get, class: "public_search") do %>
+            <%= select_tag "line", "<option>LRT1</option><option>LRT2</option><option>MRT3</option>".html_safe %>
+            <%= select_tag "station", options_from_collection_for_select(@stations, "id", "name") %>
+            <%= select_tag "direction", "<option>Northbound</option><option>Southbound</option>".html_safe %>
+            <%= submit_tag "Get data" %>
+        <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <%= line_chart Pump.group_by_day(:created_at).count %>
     </div>
 </div>
 </div>
