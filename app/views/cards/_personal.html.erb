@@ -26,5 +26,9 @@
                 </div>
             <% end %>
         </div>
+        <h3>Historical Graph</h3>
+        <div class="personal-chart">
+        <%= line_chart Pump.group_by_day(:created_at).count %>
+        </div>
     </div>
 </div>
