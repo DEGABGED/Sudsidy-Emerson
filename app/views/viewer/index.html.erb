@@ -1,72 +1,81 @@
-<h1>Cards</h1>
+<div class="container-fluid navbar-offset">
+    <div class="row">
+        <div class="col-4">
+        <h4>Weekly Pumps</h4>
+        <p>626</p>
+        </div>
+        <div class="col-4">
+        <h4>Total Pumps</h4>
+        <p>3,491</p>
+        </div>
+        <div class="col-4">
+        <h4>Points Spent on You</h4>
+        <p>410,058</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-3">
+        <%= link_to "Download Pump Data (CSV)", admin_csv_path(format: :csv) %>
+      </div>
+      <div class="col-3">
+        <%= link_to "Download Point Spending Data (CSV)", admin_csv_path(format: :csv) %>
+      </div>
+      <div class="col-3">
+        <%= link_to "Download Card Data (CSV)", admin_csv_path(format: :csv) %>
+      </div>
+      <div class="col-3">
+        <%= link_to "Download Scanner Data (CSV)", admin_csv_path(format: :csv) %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <%= form_tag('/data', method: :get, class: "partner_search") do %>
+            <%= select_tag "line", "<option>LRT1</option><option>LRT2</option><option>MRT3</option>".html_safe %>
+            <%= select_tag "station", options_from_collection_for_select(@stations, "id", "name") %>
+            <%= select_tag "direction", "<option>Northbound</option><option>Southbound</option>".html_safe %>
+            <%= date_field_tag "created_at" %>
+            <%= submit_tag "Get data" %>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= pie_chart [
+          ["Scans with valid points", @valids[1]],
+          ["Invalid scans", @valids[0]]
+        ] %>
+      </div>
+    </div>
+    <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Serial ID</th>
-      <th>Origin</th>
-      <th>Date Given</th>
-      <th>Last Ridden</th>
-      <th>Last Pumped</th>
-      <th>Points</th>
-      <th>Points Total</th>
-    </tr>
-  </thead>
+    <div class="row">
+      <div class="col text-center">
+        <h5>Total Pumps</h5>
+        <%= line_chart @total_pumps %>
+      </div>
+    </div>
+    <hr>
 
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= card.sid %></td>
-        <td><%= card.origin %></td>
-        <td><%= card.date_given %></td>
-        <td><%= card.last_ridden %></td>
-        <td><%= card.last_pumped %></td>
-        <td><%= card.points %></td>
-        <td><%= card.points_total %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="row">
+      <div class="col text-center">
+        <h5>Points Rewarded</h5>
+        <%= line_chart @points_rewarded %>
+      </div>
+    </div>
+    <hr>
 
-<h1>Scanners</h1>
+    <div class="row">
+      <div class="col text-center">
+        <h5>Pumps without Scans</h5>
+        <%= line_chart @no_scans %>
+      </div>
+    </div>
+    <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Station</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scanners.each do |scanner| %>
-      <tr>
-        <td><%= scanner.key %></td>
-        <td><%= scanner.station.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Pumps</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Card</th>
-      <th>Scanner</th>
-      <th>Valid?</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pumps.each do |pump| %>
-      <tr>
-        <td><%= pump.card ? pump.card.sid : 'None' %></td>
-        <td><%= pump.scanner.key %></td>
-        <td><%= pump.is_valid == 1 %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    <div class="row">
+      <div class="col text-center">
+        <h5>Points Spent on You</h5>
+        <%= line_chart @points_spent %>
+      </div>
+    </div>
+</div>

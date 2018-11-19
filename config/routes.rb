@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'pumps' => 'pumps#create'
 
   # Admin Routes
+  get '/admin/csv', to: 'viewer#csv', as: 'admin_csv'
 
   # To be removed routes
   get 'data' => 'viewer#index', as: :viewer
