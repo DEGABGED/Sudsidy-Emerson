@@ -1,8 +1,7 @@
-<h1>Cards#show</h1>
-<p>Find me in app/views/cards/show.html.erb</p>
-
+<div class="container-fluid navbar-offset">
 <% if @card %>
-    <p>Card found! <%= @card.sid %></p>
+    <%= render partial: 'cards/personal', card: @card %>
 <% else %>
-    <p>No Card found</p>
+    <p class="text-center">Sorry, we weren't able to find that card!</p>
 <% end %>
+</div>

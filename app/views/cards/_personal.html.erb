@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col">
+        <h3>Card Number</h3>
+        <p><%= @card.sid %></p>
+        <h3>Name</h3>
+        <p>Juan dela Cruz</p>
+        <h3>Cellphone Number</h3>
+        <p>09xx-xxxx-xxx</p>
+        <h3>First Use</h3>
+        <p><%= @card.date_given.strftime("%B %d, %Y") %></p>
+    </div>
+    <div class="col col-mid">
+        <h3>Current Points</h3>
+        <p><%= @card.points %></p>
+        <h3>Spent Points</h3>
+        <p><%= @card.points_spent %></p>
+    </div>
+    <div class="col">
+        <h3>Latest Sanitations</h3>
+        <div class="scrollable">
+            <% @card.pumps.each do |pump| %>
+                <div class="scrollable-pump">
+                    Station: <%= pump.scanner.station.name %>
+                    <br>
+                    <%= pump.created_at.strftime("%l:%M %p - %b %d, %Y") %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

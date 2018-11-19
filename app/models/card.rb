@@ -5,6 +5,10 @@ class Card < ApplicationRecord
       self.last_ridden && self.last_pumped && self.last_ridden - self.last_pumped > 30
     end
 
+    def points_spent
+      self.points_total - self.points
+    end
+
     def sanitize_hands
         self.last_pumped = DateTime.now()
         self.points += 1

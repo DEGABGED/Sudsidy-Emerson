@@ -39,6 +39,12 @@ html, body {
     min-height: 100%;
 }
 
+.navbar-offset {
+    margin-top: 80px;
+    padding-top: 40px;
+    position: absolute;
+}
+
 /* navbar */
 .navbar {
     position: fixed;
@@ -70,4 +76,19 @@ html, body {
 .card_search * {
     align-self: center;
     margin-top: 20px;
+}
+
+/* personal data */
+.col-mid {
+    border: 3px solid #00c6d7;
+    border-width: 0px 3px
+}
+
+.scrollable {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.scrollable-pump {
+    margin-bottom: 10px;
 }
