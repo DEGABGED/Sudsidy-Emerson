@@ -1,2 +1,12 @@
-<h1>Cards#index</h1>
-<p>Find me in app/views/cards/index.html.erb</p>
+<div class="orange container-fluid fill">
+<%= image_tag "logo.png", class: "rounded mx-auto d-block logo" %>
+<div class="row">
+    <div class="container">
+        <h1 class="text-center">Sudsidy</h1>
+        <%= form_tag('/cards', method: :get, class: "card_search") do %>
+            <%= text_field_tag 'id' %>
+            <%= submit_tag 'Search Card', name: nil %>
+        <% end %>
+    </div>
+</div>
+</div>

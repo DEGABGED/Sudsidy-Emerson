@@ -17,3 +17,39 @@
  /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 
 @import "bootstrap";
+
+/* base */
+html, body {
+    top: 0px;
+    height: 100%;
+}
+
+/* colors */
+.orange {
+    background-color: #FD9A72;
+}
+
+/* div arrangement */
+.fill { 
+    min-height: 100%;
+}
+
+/* elements */
+.notice, .alert {
+    position: fixed;
+}
+
+.logo {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.card_search {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_search * {
+    align-self: center;
+    margin-top: 20px;
+}

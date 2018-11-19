@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   # Public Routes
   root 'cards#index'
-  get 'cards/:id' => 'cards#show', as: :card
+  get 'cards' => 'cards#show', as: :card
 
   # RasPi Routes
   post 'pumps' => 'pumps#create'
