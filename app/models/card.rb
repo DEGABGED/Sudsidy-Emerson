@@ -2,7 +2,7 @@ class Card < ApplicationRecord
     has_many :pumps
 
     def has_redeemable
-      self.last_ridden && self.last_pumped && self.last_ridden > self.last_pumped
+      self.last_ridden && self.last_pumped && self.last_ridden - self.last_pumped > 30
     end
 
     def sanitize_hands

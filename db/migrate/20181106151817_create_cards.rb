@@ -4,8 +4,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :sid
       t.string :origin
       t.datetime :date_given
-      t.datetime :last_ridden
-      t.datetime :last_pumped
+      t.datetime :last_ridden, default: -> { 'CURRENT_TIMESTAMP' }
+      t.datetime :last_pumped, default: -> { 'CURRENT_TIMESTAMP' }
       t.integer :points
       t.integer :points_total
 

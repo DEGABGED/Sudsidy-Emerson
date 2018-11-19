@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_015105) do
+ActiveRecord::Schema.define(version: 2018_11_17_031048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2018_11_17_015105) do
     t.string "sid"
     t.string "origin"
     t.datetime "date_given"
-    t.datetime "last_ridden"
-    t.datetime "last_pumped"
+    t.datetime "last_ridden", default: "2018-11-17 03:22:01"
+    t.datetime "last_pumped", default: "2018-11-17 03:22:01"
     t.integer "points"
     t.integer "points_total"
     t.datetime "created_at", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_015105) do
     t.bigint "station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "last_refilled", default: -> { "now()" }
     t.index ["station_id"], name: "index_scanners_on_station_id"
   end
 
