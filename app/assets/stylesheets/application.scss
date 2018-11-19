@@ -29,9 +29,27 @@ html, body {
     background-color: #FD9A72;
 }
 
+.black-text,
+.black-text a  {
+    color: #033333;
+}
+
 /* div arrangement */
 .fill { 
     min-height: 100%;
+}
+
+/* navbar */
+.navbar {
+    position: fixed;
+    top: 0px;
+    height: 80px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.navbar .tabs {
+    margin-left: 20px;
 }
 
 /* elements */

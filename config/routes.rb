@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   # Public Routes
   root 'cards#index'
+  get 'search' => 'cards#search', as: :card_search
   get 'cards' => 'cards#show', as: :card
 
   # RasPi Routes

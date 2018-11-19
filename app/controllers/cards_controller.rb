@@ -8,6 +8,10 @@ class CardsController < ApplicationController
     # Get aggregate data here
   end
 
+  def search
+    # Load the card_search page here
+  end
+
   private
   def set_card
     @card = Card.where(sid: params[:id]).first
