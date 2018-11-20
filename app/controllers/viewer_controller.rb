@@ -15,7 +15,7 @@ class ViewerController < ApplicationController
     end
 
     # Filter the pumps
-    if params[:created_at]
+    if params[:created_at] && params[:created_at].length > 0
       @pumps = @pumps.where(
         'created_at BETWEEN ? AND ?',
         params[:created_at].to_date.beginning_of_day,
@@ -61,12 +61,12 @@ class ViewerController < ApplicationController
       ["10 PM", 0],
     ]
     @points_spent = [
-      ["Nov 15 18", 250],
-      ["Nov 16 18", 275],
-      ["Nov 17 18", 200],
-      ["Nov 18 18", 375],
-      ["Nov 19 18", 300],
-      ["Nov 20 18", 325],
+      ["Nov 15 2018", 250],
+      ["Nov 16 2018", 275],
+      ["Nov 17 2018", 200],
+      ["Nov 18 2018", 375],
+      ["Nov 19 2018", 300],
+      ["Nov 20 2018", 325],
     ]
   end
 
